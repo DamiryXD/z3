@@ -2,7 +2,7 @@
 #define UKLADROWNANLINIOWYCH_HH
 
 #include <iostream>
-
+//beka
 
 /*
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
