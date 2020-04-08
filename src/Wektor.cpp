@@ -46,7 +46,7 @@ std::istream &operator>>(std::istream &StrWe, Wektor &Arg1)
 */
 std::ostream &operator<<(std::ostream &StrWy, const Wektor &Arg1)
 {
-    //for (int i=0;i<ROZMIAR;i++)
+    for (int i=0;i<ROZMIAR;i++)
     
     return StrWy << Arg1[0] << Arg1[1] << Arg1[2]; // slabe rozwiazanie, do przemyslenia
 }

@@ -10,10 +10,10 @@
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
  *  i jakie ma glowne cechy.
  */
-class Macierz:private Wektor {
-  
+class Macierz:public Wektor {
+  double macierz[ROZMIAR][ROZMIAR];
   public:
-  friend std::ostream & operator << (std::ostream &StrWy,Macierz Arg1);
+  Macierz(Wektor Arg1);
 };
 
 
