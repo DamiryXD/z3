@@ -2,6 +2,7 @@
 #define MACIERZ_HH
 
 #include "rozmiar.h"
+#include "Wektor.hh"
 #include <iostream>
 
 
@@ -9,14 +10,10 @@
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
  *  i jakie ma glowne cechy.
  */
-class Macierz {
-  /*
-   *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
-   */
+class Macierz:private Wektor {
+  
   public:
-  /*
-   *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
-   */    
+  friend std::ostream & operator << (std::ostream &StrWy,Macierz Arg1);
 };
 
 
@@ -40,3 +37,7 @@ std::ostream& operator << (std::ostream &Strm, const Macierz &Mac);
 
 
 #endif
+
+
+
+
