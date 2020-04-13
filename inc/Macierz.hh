@@ -19,9 +19,14 @@ public:
   Wektor &operator[](int Kol) { return kolumna[Kol]; }
   const double operator()(int Wi, int Ko) const { return kolumna[Ko][Wi]; }
   double &operator()(int Wi, int Ko) { return kolumna[Ko][Wi]; }
+  Macierz();
   Macierz(Wektor z1,Wektor z2,Wektor z3);
   double wyznacznik(Macierz A);
   Macierz operator*(int n);
+   Wektor operator*(Wektor B);
+  Macierz PodstawKolumne(Wektor B,int n) ;
+  void ZamienKolumny(unsigned int Kol1,unsigned int Kol2);
+  Macierz transpozycja(); 
 };
 
 /*

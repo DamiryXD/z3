@@ -22,10 +22,6 @@ double& Wektor:: operator[](unsigned int Ind)
 {
     return wektor[Ind];
 }
-/*bool Get_wektor (std::istream & StrWe, double & Liczba)
-{
-    return 
-} */
 std::istream &operator>>(std::istream &StrWe, Wektor &Arg1)
 {
     for (int i = 0; i < ROZMIAR; i++)
@@ -45,8 +41,12 @@ std::istream &operator>>(std::istream &StrWe, Wektor &Arg1)
 */
 std::ostream &operator<<(std::ostream &StrWy, const Wektor &Arg1)
 {
-    
-    return StrWy << Arg1[0] << Arg1[1] << Arg1[2]; // slabe rozwiazanie, do przemyslenia
+    for (int i=0; i<ROZMIAR;i++)
+    {
+        std::cout<< Arg1 [i] <<" ";
+    }
+        std::cout<<std::endl;
+
 }
 /*
 * Realizuje dodawanie dwóch wektorów
@@ -75,12 +75,12 @@ Wektor operator+(Wektor Arg2)
 * Zwraca:
 *   Różnice dwóch wektorów
 */
-Wektor operator-(Wektor Arg1, Wektor Arg2)
+Wektor Wektor::operator-(Wektor Arg2)
 {
     Wektor Wynik;
     for (int i = 0; i < ROZMIAR; i++)
     {
-        Wynik.wektor[i] = Arg1.wektor[i] - Arg2.wektor[i];
+        Wynik.wektor[i] = this->wektor[i] - Arg2.wektor[i];
     }
     return Wynik;
 }
@@ -92,12 +92,12 @@ Wektor operator-(Wektor Arg1, Wektor Arg2)
 * Zwraca:
 *   Liczbe zmienno przecinkową typu double 
 */
-double operator*(Wektor Arg1, Wektor Arg2)
+double Wektor:: operator*(Wektor Arg2)
 {
     double Wynik = 0;
     for (int i = 0; i < ROZMIAR; i++)
     {
-        Wynik = Wynik + Arg1.wektor[i] * Arg2.wektor[i];
+        Wynik = Wynik + this->wektor[i] * Arg2.wektor[i];
     }
     return Wynik;
 }
@@ -109,12 +109,12 @@ double operator*(Wektor Arg1, Wektor Arg2)
 * Zwraca:
 *   Wektor o wielkości ROZMIAR 
 */
-Wektor operator*(Wektor Arg1, int n) // mozna poprawic na licbe zmienno przecinkowa
+Wektor Wektor::operator*( int n) // mozna poprawic na licbe zmienno przecinkowa
 {
     Wektor Wynik;
     for (int i = 0; i < ROZMIAR; i++)
     {
-        Wynik.wektor[i] = Arg1.wektor[i] * n;
+        Wynik.wektor[i] = this->wektor[i] * n;
     }
     return Wynik;
 }
@@ -127,7 +127,7 @@ Wektor operator*(Wektor Arg1, int n) // mozna poprawic na licbe zmienno przecink
 * Zwraca:
 *   Wektor o wielkości ROZMIAR 
 */
-Wektor operator/(Wektor Arg1, int n)
+Wektor Wektor::operator/( int n)
 {
     Wektor Wynik;
     if (n == 0)
@@ -136,7 +136,8 @@ Wektor operator/(Wektor Arg1, int n)
     }
     for (int i = 0; i < ROZMIAR; i++)
     {
-        Wynik.wektor[i] = Arg1.wektor[i] / n;
+        Wynik.wektor[i] = this->wektor[i] / n;
     }
     return Wynik;
 }
+

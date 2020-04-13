@@ -7,31 +7,25 @@
 
 using namespace std;
 
-/*
- * Tu definiujemy pozostale funkcje.
- * Lepiej jednak stworzyc dodatkowy modul
- * i tam je umiescic. Ten przyklad pokazuje
- * jedynie absolutne minimum.
- */
-
-
 int main()
 {
-  Wektor z1,z2,z3,z4;
-  
-  
+  Wektor z [ROZMIAR+1];
+  UkladRownanLiniowych Rozw;
   cout << endl << " Start programu " << endl << endl;
-  cout<<"Wprowadz wektor pierwszy:";
-  cin>>z1;
-  cout<<"Wprowadz wektor drugi";
-  cin>>z2;
-  cout<<"Wprowadz wektor trzeci";
-  cin>>z3;
-  cout<<"Wprowadz wektor czwarty";
-  cin>>z4;
-  Macierz beka(z1,z2,z3);
-  cout<<beka;
-  cout<<"Wyznacznik macierzy="<<beka.wyznacznik(beka);
+  for (int i=0;i<=ROZMIAR;i++)
+  {
+    cin>>z[i];
+  }
+  Macierz M (z[0],z[1],z[2]);
+  cout<<"Macierz A:"<<endl<<M;
+  cout<<"Macierz transponowana:"<<endl<< M.transpozycja();
+  cout<<"Macierz podstawiowa 1 kolumna:"<< endl << M.PodstawKolumne(z[ROZMIAR],0);
+  Rozw.RozwiazUkladRownan(M,z[ROZMIAR]);
+  Rozw.WyliczBladRozwiazania(M,z[ROZMIAR]);
+  // zmien petle na zakres tablicy
+  // popraw przejrzystosc funkcji
+  // dokumentacja
+  // dodaj konstruktor dla Macierzy kolejny
   
   return 0;
 }
