@@ -1,12 +1,23 @@
 #include "Macierz.hh"
 
-Macierz::Macierz(Wektor Arg1)
+Macierz::Macierz(Wektor  z1, Wektor z2, Wektor z3)
 {
     for (int i = 0; i < ROZMIAR; i++)
     {
         for (int j = 0; j < ROZMIAR; j++)
         {
-            macierz[i][j] = Arg1[j];
+            //
+        }
+    }
+}
+std::ostream &operator<<(std::ostream &StrWy, const Macierz &Mac)
+{
+    for (int i = 0; i < ROZMIAR; i++)
+    {
+        for (int j = 0; j < ROZMIAR; j++)
+
+        {
+               // slabe rozwiazanie, do przemyslenia
         }
     }
 }

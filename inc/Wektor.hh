@@ -3,6 +3,8 @@
 
 #include "rozmiar.h"
 #include <iostream>
+#include <cstdio>
+#include <vector>
 
 /*
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
@@ -10,8 +12,10 @@
  */
 class Wektor
 {
+  protected:
   
   double wektor[ROZMIAR];
+  
 public:
   Wektor();
   double operator[](unsigned int Ind) const;

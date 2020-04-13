@@ -11,9 +11,11 @@
  *  i jakie ma glowne cechy.
  */
 class Macierz:public Wektor {
-  double macierz[ROZMIAR][ROZMIAR];
+   
+  Wektor kolumna [ROZMIAR];
   public:
-  Macierz(Wektor Arg1);
+ 
+  Macierz(Wektor z1, Wektor z2, Wektor z3);
 };
 
 
@@ -24,7 +26,7 @@ class Macierz:public Wektor {
  * znalezc w pliku:
  *    ~bk/edu/kpo/zalecenia.txt 
  */
-std::istream& operator >> (std::istream &Strm, Macierz &Mac);
+std::istream& operator >> (std::istream &Strm, Macierz &macierz);
 
 /*
  * To przeciazenie trzeba opisac. Co ono robi. Jaki format

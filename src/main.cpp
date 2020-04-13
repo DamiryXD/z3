@@ -25,7 +25,8 @@ int main()
   cin>>z1;
   cout<<"Wprowadz wektor drugi";
   cin>>z2;
-  cout<<"Proba:"<<z1<<endl;
-  cout<<"Dodane wektory"<<z1*z2;
+  cout<<"Wprowadz wektor trzeci";
+  cin>>z3;
+  Macierz test(z1,z2,z3);
 
 }
