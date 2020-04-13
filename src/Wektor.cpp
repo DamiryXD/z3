@@ -28,7 +28,6 @@ double& Wektor:: operator[](unsigned int Ind)
 } */
 std::istream &operator>>(std::istream &StrWe, Wektor &Arg1)
 {
-    double elem;
     for (int i = 0; i < ROZMIAR; i++)
     {
         StrWe >> Arg1[i];
@@ -46,7 +45,6 @@ std::istream &operator>>(std::istream &StrWe, Wektor &Arg1)
 */
 std::ostream &operator<<(std::ostream &StrWy, const Wektor &Arg1)
 {
-    for (int i=0;i<ROZMIAR;i++)
     
     return StrWy << Arg1[0] << Arg1[1] << Arg1[2]; // slabe rozwiazanie, do przemyslenia
 }
@@ -64,8 +62,8 @@ Wektor operator+(Wektor Arg2)
     Wektor Wynik;
     for (int i = 0; i < ROZMIAR; i++)
     {
-        //Wynik.wektor[i]=Arg1.wektor[i]+Arg2.wektor[i];
-        //Arg2.wektor[i]+= wektor[i];
+        //Wynik[i]=this[i]+Arg2[i];
+      //  Arg2[i]+= wektor[i];
     }
     return Wynik;
 }

@@ -17,8 +17,8 @@ using namespace std;
 
 int main()
 {
-  Wektor z1,z2,z3;
-
+  Wektor z1,z2,z3,z4;
+  
   
   cout << endl << " Start programu " << endl << endl;
   cout<<"Wprowadz wektor pierwszy:";
@@ -27,6 +27,11 @@ int main()
   cin>>z2;
   cout<<"Wprowadz wektor trzeci";
   cin>>z3;
-  Macierz test(z1,z2,z3);
-
+  cout<<"Wprowadz wektor czwarty";
+  cin>>z4;
+  Macierz beka(z1,z2,z3);
+  cout<<beka;
+  cout<<"Wyznacznik macierzy="<<beka.wyznacznik(beka);
+  
+  return 0;
 }
