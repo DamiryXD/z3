@@ -46,6 +46,7 @@ std::ostream &operator<<(std::ostream &StrWy, const Wektor &Arg1)
         std::cout<< Arg1 [i] <<" ";
     }
         std::cout<<std::endl;
+        return StrWy;
 
 }
 /*

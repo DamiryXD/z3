@@ -5,46 +5,25 @@
 #include "Wektor.hh"
 #include <iostream>
 
-/*
- *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
- *  i jakie ma glowne cechy.
- */
 class Macierz : public Wektor
 {
 protected:
   Wektor kolumna[ROZMIAR];
-
 public:
   const Wektor &operator[](int Kol) const { return kolumna[Kol]; }
   Wektor &operator[](int Kol) { return kolumna[Kol]; }
   const double operator()(int Wi, int Ko) const { return kolumna[Ko][Wi]; }
   double &operator()(int Wi, int Ko) { return kolumna[Ko][Wi]; }
   Macierz();
-  Macierz(Wektor z1,Wektor z2,Wektor z3);
+  Macierz(Wektor z1, Wektor z2, Wektor z3);
   double wyznacznik(Macierz A);
   Macierz operator*(int n);
-   Wektor operator*(Wektor B);
-  Macierz PodstawKolumne(Wektor B,int n) ;
-  void ZamienKolumny(unsigned int Kol1,unsigned int Kol2);
-  Macierz transpozycja(); 
+  Wektor operator*(Wektor B);
+  Macierz PodstawKolumne(Wektor B, int n);
+  Macierz transpozycja();
 };
 
-/*
- * To przeciazenie trzeba opisac. Co ono robi. Jaki format
- * danych akceptuje. Jakie jest znaczenie parametrow itd.
- * Szczegoly dotyczace zalecen realizacji opisow mozna
- * znalezc w pliku:
- *    ~bk/edu/kpo/zalecenia.txt 
- */
-std::istream &operator>>(std::istream &Strm, Macierz &macierz);
-
-/*
- * To przeciazenie trzeba opisac. Co ono robi. Jaki format
- * danych akceptuje. Jakie jest znaczenie parametrow itd.
- * Szczegoly dotyczace zalecen realizacji opisow mozna
- * znalezc w pliku:
- *    ~bk/edu/kpo/zalecenia.txt 
- */
-std::ostream &operator<<(std::ostream &Strm, const Macierz &Mac);
+std::istream &operator>>(std::istream &StrWe, Macierz &A);
+std::ostream &operator<<(std::ostream &StrWy, const Macierz &Mac);
 
 #endif

@@ -4,10 +4,8 @@
 #include <iostream>
 #include "Wektor.hh"
 #include "Macierz.hh"
-/*
- *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
- *  i jakie ma glowne cechy.
- */
+
+
 class UkladRownanLiniowych : public Macierz {
   private:
   Wektor Rozwiazanie;

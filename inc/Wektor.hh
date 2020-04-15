@@ -4,21 +4,20 @@
 #include "rozmiar.h"
 #include <iostream>
 
-
-
 class Wektor
 {
-  protected:
+protected:
   double wektor[ROZMIAR];
+
 public:
   Wektor();
   double operator[](unsigned int Ind) const;
-  double & operator[](unsigned int Ind);
+  double &operator[](unsigned int Ind);
+  double operator*(Wektor Arg2);
   Wektor operator+(Wektor Arg2);
-   Wektor operator-( Wektor Arg2);
-   double operator*(Wektor Arg2);
-   Wektor operator*(int n);
-   Wektor operator/(int n);       
+  Wektor operator-(Wektor Arg2);
+  Wektor operator*(int n);
+  Wektor operator/(int n);
 };
 
 std::istream &operator>>(std::istream &StrWe, Wektor &Arg1);

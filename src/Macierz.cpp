@@ -1,18 +1,20 @@
 #include "Macierz.hh"
 #include <cassert>
+#include <cstdlib>
 
 
 
 Macierz::Macierz()
 {
-   /* Macierz A;
+    Wektor z[ROZMIAR];
     for (int i = 0; i < ROZMIAR; i++)
     {
-        for (int j = 0; j < ROZMIAR; j++)
+        for (int j=0;j<ROZMIAR;j++)
         {
-            A[i][j]=0;
-        } */
-
+            z[i][j]=0;
+        }
+        kolumna[i]=z[i];
+    }
 }
 Macierz::Macierz(Wektor z1, Wektor z2, Wektor z3)
 {
@@ -35,14 +37,12 @@ double Macierz::wyznacznik(Macierz A)
     det = 1;
     for (int i = 0; i < ROZMIAR; i++)
         det *= A[i][i];
+    //if (det ==0)
+    //{
+    //    std::cerr<<"Wyznacznik macierzy równy 0. Brak rozwiązań rzeczywistych.";
+    //   exit(0);
+    //}
     return det; 
-}
-void Macierz::ZamienKolumny(unsigned int Kol1, unsigned int Kol2)
-{
-    assert(Kol1 < ROZMIAR && Kol2 < ROZMIAR);
-    Wektor tmp = kolumna[Kol1];
-    kolumna[Kol1] = kolumna[Kol2];
-    kolumna[Kol2] = tmp;
 }
 
 Macierz Macierz::operator*(int n)
@@ -115,5 +115,16 @@ std::ostream &operator<<(std::ostream &StrWy, const Macierz &Mac)
         }
         StrWy << std::endl;
     }
+    return StrWy;
+}
+std::istream &operator>>(std::istream &StrWe, Macierz &A)
+{
+    Wektor z[ROZMIAR];
+    for (int i = 0; i < ROZMIAR; i++)
+    {
+            StrWe>>z[i];
+            A[i]=z[i];
+    }
+    return StrWe;
 }
 

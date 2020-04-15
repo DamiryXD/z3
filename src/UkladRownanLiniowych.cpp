@@ -19,11 +19,10 @@
   {
         std::cout<<"Wektor bledu:"<<std::endl;
         Wektor blad= A*this->Rozwiazanie - B;
-        std::cout.precision(15); 
         std::cout.setf(std::ios::showpoint);
         std::cout<< blad;
         std::cout.setf(std::ios::showpoint);
         std::cout<<"Dlugosc wektora bledu:"<<std::endl;
-        std::cout<< sqrt(blad*blad);
+        std::cout<< sqrt(blad*blad)<<std::endl;
   }
 
