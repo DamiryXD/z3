@@ -3,7 +3,13 @@
 #include <cstdlib>
 
 
-
+/*
+* Konstruktor klasy Macierz
+* Argumenty:
+* -Ukryty obiekt klasy typu Macierz  
+* Zwraca:
+*   Obiekt klasy Macierz wczytany samymi zerami.
+*/
 Macierz::Macierz()
 {
     Wektor z[ROZMIAR];
@@ -16,14 +22,15 @@ Macierz::Macierz()
         kolumna[i]=z[i];
     }
 }
-Macierz::Macierz(Wektor z1, Wektor z2, Wektor z3)
-{
-    kolumna[0] = z1;
-    kolumna[1] = z2;
-    kolumna[2] = z3;
-}
-
-double Macierz::wyznacznik(Macierz A)
+/*
+* Metoda realizuje obliczanie wyznacznik
+* Argumenty:
+*   Ukryty obiekt klasy typu Wektor  
+*   A - obiekt klasy macierz
+* Zwraca:
+*   Wyznacznik macierzy A
+*/
+double Macierz::wyznacznik(Macierz A)const
 {
     double det;
     for (int i = 0; i < ROZMIAR - 1; i++)
@@ -37,15 +44,22 @@ double Macierz::wyznacznik(Macierz A)
     det = 1;
     for (int i = 0; i < ROZMIAR; i++)
         det *= A[i][i];
-    //if (det ==0)
-    //{
-    //    std::cerr<<"Wyznacznik macierzy równy 0. Brak rozwiązań rzeczywistych.";
-    //   exit(0);
-    //}
+    if (det ==0)
+    {
+    std::cerr<<"Wyznacznik macierzy równy 0. Brak rozwiązań rzeczywistych.";
+       exit(0);
+    }
     return det; 
 }
-
-Macierz Macierz::operator*(int n)
+/*
+* Metoda realizuje mnożenie macierzy przez liczbe zmienno przecinkową
+* Argumenty:
+*   Ukryty obiekt klasy typu Macierz  
+*   n - zmienna liczba zmiennoprzecinkowa typu double
+* Zwraca:
+*   Kopie macierzy po wykonaniu operacji mnozenia
+*/
+Macierz Macierz::operator*(double n)const
 {
     Macierz B;
     for (int i = 0; i < ROZMIAR; i++)
@@ -57,7 +71,16 @@ Macierz Macierz::operator*(int n)
     }
     return B;
 }
-Macierz Macierz::PodstawKolumne(Wektor B,int n) 
+/*
+* Metoda realizuje podstawienie kolumny przez Wektor B w kolumnie numer n
+* Argumenty:
+*   Ukryty obiekt klasy typu Macierz  
+*   B - obiekt klasy Wektor
+*   n - numer kolumny
+* Zwraca:
+*   Kopie macierzy po wykonaniu operacji podstawienia kolumny
+*/
+Macierz Macierz::PodstawKolumne(Wektor B,int n)const
 {
     Macierz C;
     for (int i = 0; i < ROZMIAR; i++)
@@ -79,7 +102,15 @@ Macierz Macierz::PodstawKolumne(Wektor B,int n)
     }
     return C;
 }
- Wektor Macierz::operator*(Wektor B) 
+/*
+* Metoda realizuje mnożenie macierzy przez wektor
+* Argumenty:
+*   Ukryty obiekt klasy typu Macierz  
+*   B - obiekt klasy Wektor
+* Zwraca:
+*   Kopie macierzy po wykonaniu operacji mnozenia
+*/
+ Wektor Macierz::operator*(Wektor B) const
 {
     Wektor C;
     for (int i = 0; i < ROZMIAR; i++)
@@ -91,7 +122,15 @@ Macierz Macierz::PodstawKolumne(Wektor B,int n)
     }
     return C;
 }
-Macierz Macierz::transpozycja()
+/*
+* Metoda realizuje operacji transpozycji macierzy
+* Argumenty:
+*   Ukryty obiekt klasy typu Macierz  
+* Zwraca:
+*   Kopie macierzy po wykonaniu operacji transpozycji
+*/
+
+Macierz Macierz::transpozycja()const
 {
     Macierz B;
     for (int i = 0; i < ROZMIAR; i++)
@@ -104,12 +143,19 @@ Macierz Macierz::transpozycja()
     }
     return B;
 }
+  /*
+* Przeciążenie operatora wyjscia dla Macierzy
+* Argumenty:
+*   StrWy- strumien wyjscia
+*   Mac - obiekt klasy Macierz
+* Zwraca:
+*   Strumien wyjscia
+*/
 std::ostream &operator<<(std::ostream &StrWy, const Macierz &Mac)
 {
     for (int i = 0; i < ROZMIAR; i++)
     {
         for (int j = 0; j < ROZMIAR; j++)
-
         {
             StrWy << Mac[i][j] << " ";
         }
@@ -117,6 +163,14 @@ std::ostream &operator<<(std::ostream &StrWy, const Macierz &Mac)
     }
     return StrWy;
 }
+ /*
+* Przeciążenie operatora wejscia dla Macierzy
+* Argumenty:
+*   StrWe- strumien wejscia
+*   Mac - obiekt klasy Macierz
+* Zwraca:
+*   Strumien wejscia
+*/
 std::istream &operator>>(std::istream &StrWe, Macierz &A)
 {
     Wektor z[ROZMIAR];

@@ -13,11 +13,11 @@ public:
   Wektor();
   double operator[](unsigned int Ind) const;
   double &operator[](unsigned int Ind);
-  double operator*(Wektor Arg2);
-  Wektor operator+(Wektor Arg2);
-  Wektor operator-(Wektor Arg2);
-  Wektor operator*(int n);
-  Wektor operator/(int n);
+  double operator*(Wektor Arg2)const;
+  Wektor operator+(Wektor Arg2)const;
+  Wektor operator-(Wektor Arg2)const;
+  Wektor operator*(double n)const;
+  Wektor operator/(double n)const;
 };
 
 std::istream &operator>>(std::istream &StrWe, Wektor &Arg1);

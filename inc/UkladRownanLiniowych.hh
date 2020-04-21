@@ -1,42 +1,18 @@
 #ifndef UKLADROWNANLINIOWYCH_HH
 #define UKLADROWNANLINIOWYCH_HH
 
-#include <iostream>
 #include "Wektor.hh"
 #include "Macierz.hh"
 
-
-class UkladRownanLiniowych : public Macierz {
-  private:
+class UkladRownanLiniowych : public Macierz
+{ // dziedziczenie zostalo wykorzystane aby uzyskac dostep do funkcji klasy macierz
   Wektor Rozwiazanie;
-  public:
-  void RozwiazUkladRownan (Macierz A, Wektor B);
-  void wyswietl()
-  {
-    for (int i=0;i<ROZMIAR;i++)
-    std::cout<<Rozwiazanie[i]<<" ";
-  }
-  void WyliczBladRozwiazania (Macierz A,Wektor B);
+public:
+  Macierz A;
+  Wektor B;
+  void RozwiazUkladRownan();
+  void WyliczBladRozwiazania() const;
 };
-
-
-/*
- * To przeciazenie trzeba opisac. Co ono robi. Jaki format
- * danych akceptuje. Jakie jest znaczenie parametrow itd.
- * Szczegoly dotyczace zalecen realizacji opisow mozna
- * znalezc w pliku:
- *    ~bk/edu/kpo/zalecenia.txt 
- */
-std::istream& operator >> (std::istream &Strm, UkladRownanLiniowych &UklRown);
-
-/*
- * To przeciazenie trzeba opisac. Co ono robi. Jaki format
- * danych akceptuje. Jakie jest znaczenie parametrow itd.
- * Szczegoly dotyczace zalecen realizacji opisow mozna
- * znalezc w pliku:
- *    ~bk/edu/kpo/zalecenia.txt 
- */
-std::ostream& operator << ( std::ostream  &Strm, const UkladRownanLiniowych &UklRown );
-
-
+std::istream &operator>>(std::istream &Strm, UkladRownanLiniowych &UklRown);
+std::ostream &operator<<(std::ostream &Strm, const UkladRownanLiniowych &UklRown);
 #endif
