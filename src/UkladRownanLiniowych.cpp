@@ -14,11 +14,11 @@
   void UkladRownanLiniowych:: RozwiazUkladRownan ()
   {
     std::cout<<"Rozwiązanie x= (x1,x2,x3):"<<std::endl;
-    double det=A.wyznacznik(A);
+    double det=A.wyznacznik();
     for (int i=0;i<ROZMIAR;i++)
     {
         Macierz C= A.PodstawKolumne(B,i);
-        this->Rozwiazanie[i]=C.wyznacznik(C) /det;
+        this->Rozwiazanie[i]=C.wyznacznik() /det;
         std::cout<<this->Rozwiazanie[i] << " ";
     }
     std::cout<<std::endl;
@@ -31,7 +31,7 @@
 * Zwraca:
 *   ---
 */
-  void UkladRownanLiniowych::WyliczBladRozwiazania ()const
+  void UkladRownanLiniowych::WyliczBladRozwiazania ()
   {
         std::cout<<"Wektor bledu:"<<std::endl;
         Wektor blad= A*this->Rozwiazanie - B;
@@ -51,8 +51,9 @@
 */
   std::istream& operator >> (std::istream &Strm, UkladRownanLiniowych &UklRown)
 {
-  Strm>>UklRown.A;
-  Strm>>UklRown.B;
+
+  Strm>>UklRown.Get_macierz();
+  Strm>>UklRown.Get_wektor();
   return Strm;
 }
   /*
@@ -65,8 +66,8 @@
 */
 std::ostream& operator << ( std::ostream  &Strm, const UkladRownanLiniowych &UklRown )
 {
-  Strm<<UklRown.A;
-  Strm<<UklRown.B;
+  Strm<<UklRown.Get_macierz();
+  Strm<<UklRown.Get_wektor();
   return Strm;
 }
 

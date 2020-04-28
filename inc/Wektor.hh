@@ -6,9 +6,7 @@
 
 class Wektor
 {
-protected:
   double wektor[ROZMIAR];
-
 public:
   Wektor();
   double operator[](unsigned int Ind) const;

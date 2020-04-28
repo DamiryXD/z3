@@ -30,9 +30,16 @@ Macierz::Macierz()
 * Zwraca:
 *   Wyznacznik macierzy A
 */
-double Macierz::wyznacznik(Macierz A)const
+double Macierz::wyznacznik()const
 {
     double det;
+    Macierz A;
+    for (int i = 0; i < ROZMIAR ; i++)
+
+        for (int j = 0; j < ROZMIAR; j++)
+        {
+            A[i][j]=this->kolumna[i][j];
+        }
     for (int i = 0; i < ROZMIAR - 1; i++)
 
         for (int j = i + 1; j < ROZMIAR; j++)

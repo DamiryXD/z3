@@ -4,14 +4,28 @@
 #include "Wektor.hh"
 #include "Macierz.hh"
 
-class UkladRownanLiniowych : public Macierz
-{ // dziedziczenie zostalo wykorzystane aby uzyskac dostep do funkcji klasy macierz
+class UkladRownanLiniowych 
+{ 
   Wektor Rozwiazanie;
-public:
   Macierz A;
   Wektor B;
+  public:
   void RozwiazUkladRownan();
-  void WyliczBladRozwiazania() const;
+  void WyliczBladRozwiazania();
+  Wektor &Get_wektor()
+  {
+    return B;
+  }
+  Wektor Get_wektor()const{
+    return B;
+  }
+  Macierz &Get_macierz()
+  {
+    return A;
+  }
+  Macierz Get_macierz()const{
+    return A;
+  }
 };
 std::istream &operator>>(std::istream &Strm, UkladRownanLiniowych &UklRown);
 std::ostream &operator<<(std::ostream &Strm, const UkladRownanLiniowych &UklRown);

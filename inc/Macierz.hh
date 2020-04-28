@@ -6,13 +6,12 @@
 
 class Macierz 
 {
-protected:
   Wektor kolumna[ROZMIAR];
 public:
   const Wektor &operator[](int Kol) const { return kolumna[Kol]; }
   Wektor &operator[](int Kol) { return kolumna[Kol]; }
   Macierz();
-  double wyznacznik(Macierz A)const;
+  double wyznacznik()const;
   Macierz operator*(double n)const;
   Wektor operator*(Wektor B)const;
   Macierz PodstawKolumne(Wektor B, int n)const;
